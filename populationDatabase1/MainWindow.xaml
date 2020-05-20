@@ -1,0 +1,66 @@
+﻿<Window x:Class="populationDatabase1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:populationDatabase1"
+        mc:Ignorable="d"
+        Title="Populations of Cities" Height="500" Width="330" ResizeMode="CanMinimize" Icon="images/icon.png">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/background.jpg" Opacity="0.3"/>
+        </Grid.Background>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.ColumnSpan="2"  Foreground="#F0F0EE" Background="#FFBBB9" BorderBrush="#F0F0EE" FontSize="25" Content="Population Database" HorizontalContentAlignment="Center"/>
+        
+        <ListView Width="300" Name="CityPopulationList" Background="Transparent" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" 
+                  ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedCity}" HorizontalContentAlignment="Right" BorderBrush="#FFBBB9">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Background" Value="#FFBBB9"/>
+                            <Setter Property="Foreground" Value="#F0F0EE" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            <Setter Property="Padding" Value="10 0 0 0"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="City" Width="124">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding CityName}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Population" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Population}" ContentStringFormat="N0" HorizontalAlignment="Right"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Grid.Row="2" Grid.Column="0" Margin="5" Content="Edit Row" Name="Edit" Click="Edit_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15"/>
+        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="New Row" Name="New" Click="New_Click"  Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15" />
+        <Button Grid.Row="3" Grid.Column="0" Margin="5" Content="Delete Row" Name="Delete" Click="Delete_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15" />
+        <Button Grid.Row="3" Grid.Column="1" Margin="5" Content="Query Rows" Name="Query" Click="Query_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15" />
+    </Grid>
+</Window>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="populationDatabase1.QueryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:populationDatabase1"
+        mc:Ignorable="d"
+        Title="Queries" Height="520" Width="300" ResizeMode="CanMinimize" Icon="images/icon.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/background.jpg" Opacity="0.3"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+            <Button Content="Total Population of All Cities" Height="30" Name="Total" Click="Total_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15"/>
+            <TextBox Text="{Binding TotalPopulation, StringFormat=N0}" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" VerticalAlignment="Center">
+            <Button Content="Average Population of All Cities" Height="30" Name="Average" Click="Average_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15"/>
+            <TextBox Text="{Binding AveragePopulation, StringFormat=N0}" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <Button Content="City with Lowest Population" Height="30"  Name="Lowest" Click="Lowest_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15"/>
+            <TextBox Text="{Binding LowestCity}" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+            <TextBox Text="{Binding LowestPopulation, StringFormat=N0}" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" VerticalAlignment="Center">
+            <Button Content="City with Highest Population" Height="30" Name="Highest" Click="Highest_Click" Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15"/>
+            <TextBox Text="{Binding HighestCity}" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+            <TextBox Text="{Binding HighestPopulation, StringFormat=N0}" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="15" Background="Transparent"/>
+        </StackPanel>
+    </Grid>
+</Window>

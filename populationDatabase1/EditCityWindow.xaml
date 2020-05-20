@@ -1,0 +1,34 @@
+﻿<Window x:Class="populationDatabase1.EditCityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:populationDatabase1"
+        mc:Ignorable="d"
+        Title="Edit Population" Height="170" Width="250" Icon="images/icon.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/background.jpg" Opacity="0.3"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 10">
+            <Label MinWidth="100" Content="City"/>
+            <TextBox MinWidth="100" Text="{Binding SelectedCity.CityName}" IsReadOnly="True" 
+                     VerticalContentAlignment="Center" Background="#DEB4B5"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 10">
+            <Label MinWidth="100" Content="Population"/>
+            <TextBox MinWidth="100" Text="{Binding SelectedCity.Population}"
+                     VerticalContentAlignment="Center"/>
+        </StackPanel>
+        
+        <Button Grid.Row="2" Height="30" Content="Save" Name="Save" Margin="0,2,50,2" Click="Save_Click" 
+                Foreground="white" Background="#A1D9D8" BorderBrush="#F0F0EE" FontSize="15" 
+                HorizontalAlignment="Right" Width="142" />
+    </Grid>
+</Window>
